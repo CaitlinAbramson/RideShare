@@ -1,10 +1,39 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
 
-<ul>
-{% for suggestion in question.suggestion_set.all %}
-    <li>{{ suggestion.suggestion_text }} -- {{ suggestion.suggestion_name }} </li>
-{% endfor %}
-</ul>
+<head> 
+    {% load staticfiles %}
+    <link rel='stylesheet' type='text/css' href="/static/polls/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+</head>
 
-<a href="{% url 'polls:suggestions' question.id %}">Another Suggestion?</a>
-<a href="{% url 'polls:index' %}">Back to Polls</a>
+<body>
+
+    <div class="nav">
+        <ul>
+            <li class="nav_link"> <a href="http://127.0.0.1:8000/admin/"> Admin Log In</a> </li>
+            <li class="nav_link"><a href="{% url 'polls:index' %}"> Polls </a></li> 
+        </ul>
+    </div>
+
+    <div class="header">
+        <h1 class="question_label">{{ question.question_text }}</h1>
+        <h4> Previously Suggested Choices </h4>
+    </div>
+
+    <div class="suggestion_list">
+        <ul>
+        {% for suggestion in question.suggestion_set.all %}
+            <li>{{ suggestion.suggestion_text }} (user: {{ suggestion.suggestion_name }}) </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="buttons">
+        <a class="btn btn-default" href="{% url 'polls:suggestions' question.id %}" role="button">Suggest Again?</a>
+        <a class="btn btn-default" href="{% url 'polls:index' %}" role="button">Return to Polls</a>
+    </div>
+
+    <div class="footer">
+            <p>&copy; 2019 Caitlin Abramson</p>
+    </div>
+</body>

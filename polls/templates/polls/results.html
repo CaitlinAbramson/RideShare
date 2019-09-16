@@ -1,9 +1,39 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-{% endfor %}
-</ul>
+<head> 
+    {% load staticfiles %}
+    <link rel='stylesheet' type='text/css' href="/static/polls/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+</head>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+<body>
+    <div class="nav">
+        <ul>
+            <li class="nav_link"> <a href="http://127.0.0.1:8000/admin/"> Admin Log In</a> </li>
+            <li class="nav_link"><a href="{% url 'polls:index' %}"> Polls </a></li> 
+        </ul>
+    </div>
+
+    <div class="header">
+        <h1 class="question_label">{{ question.question_text }}</h1>
+    </div>
+
+    <div class="results_list">
+        <ul>
+        {% for choice in question.choice_set.all %}
+            <li><strong>{{ choice.choice_text }}</strong>: {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="buttons">
+        <a class="btn btn-default" href="{% url 'polls:detail' question.id %}" role="button">Vote Again?</a>
+        <a class="btn btn-default" href="{% url 'polls:index' %}" role="button">Return to Polls</a>
+        <a class="btn btn-default" href="{% url 'polls:suggestions' question.id %}" role="button">Suggest a Choice</a>
+    </div>
+
+    <div class="footer">
+            <p>&copy; 2019 Caitlin Abramson</p>
+    </div>
+    
+</body>

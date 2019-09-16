@@ -1,10 +1,103 @@
-li a {
-    color: green;
-}
 
 body {
     background: url("images/background.jpg") no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: left;
     background-attachment: fixed;
 }
+
+/*general*/
+.header, .buttons, .poll_list{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.suggestion_form, .vote_options {
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.buttons .btn{
+    margin-left: 20px;
+}
+
+.btn{
+    margin-top: 20px;
+    background-color: white;
+    border-color: grey;
+    border-width: 0.5pt;
+}
+
+.question_label{
+    color: green;
+}
+
+ul{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+li a{
+    color: green;
+}
+
+/* naviation */
+
+.nav ul {
+    width: 100%;
+    background-color:rgba(51, 53, 51, 0.3);
+}
+
+.nav a{
+    display: block;
+    padding: 20px;
+    padding-right: 30px; 
+    color: white;
+
+}
+
+.nav li {
+    float: right;
+}
+
+
+/* footer */
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: left;
+  padding-left: 20px;
+}
+
+
+/* suggestions.html */
+.suggestions_header h4{
+    margin-top: 20px;
+}
+
+.text_label{
+    margin-top: 10px;
+}
+
+.suggestion_form .btn{
+    margin-top: 40px;
+}
+
+
+/* suggestionsList.html */
+.suggestion_list{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.suggestion_list li{
+    list-style-type: decimal;
+}
+
+/* results.html */
+.results_list{
+    margin-top: 20px;
+}
+
