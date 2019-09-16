@@ -7,8 +7,6 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
-
-
 class SuggestionView(generic.DetailView):
     model = Question
     template_name = 'polls/suggestions.html'
