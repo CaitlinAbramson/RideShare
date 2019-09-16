@@ -2,10 +2,34 @@ from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Question, Choice
+from .models import Question, Choice, Suggestion
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+
+
+
+class SuggestionView(generic.DetailView):
+    model = Question
+    template_name = 'polls/suggestions.html'
+
+def suggestResults(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    try:
+        name = request.POST.get("suggestion_name", "")
+        text = request.POST.get("suggestion_text", "")
+    except (KeyError, Suggestion.DoesNotExist):
+        return render(request, 'polls/suggestions.html', {
+            'question': question,
+            'error_message': "You didn't submit a suggestion.",
+        })
+    else:
+        question.suggestion_set.create(suggestion_name=name, suggestion_text=text)
+        return HttpResponseRedirect(reverse('polls:suggestionsList', args=(question.id,)))
+
+class SuggestionListView(generic.DetailView):
+    model = Question
+    template_name = 'polls/suggestionsList.html'
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'

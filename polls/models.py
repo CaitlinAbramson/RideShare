@@ -23,3 +23,11 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
+
+class Suggestion(models.Model):
+    question = models.ForeignKey(Question, 
+        on_delete=models.CASCADE)
+    suggestion_name = models.CharField(max_length=100)
+    suggestion_text = models.CharField(max_length=250)
+    def __str__(self):
+        return self.suggestion_name + ": " + self.suggestion_text

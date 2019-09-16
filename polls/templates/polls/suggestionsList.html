@@ -1,0 +1,10 @@
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for suggestion in question.suggestion_set.all %}
+    <li>{{ suggestion.suggestion_text }} -- {{ suggestion.suggestion_name }} </li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'polls:detail' question.id %}">Another Suggestion?</a>
+<a href="{% url 'polls:index' %}">Back to Polls</a>

@@ -1,0 +1,12 @@
+<h1>{{ question.question_text }}</h1>
+
+<h3> Add Your Suggestion </h3>
+
+<form action="{% url 'polls:suggestResults' question.id %}" method="post">
+    {% csrf_token %}
+    <p> Name: <br> </p>
+    <input type="text" name="suggestion_name"> <br>
+    <p> Suggestion: <br> </p>
+    <input type="text" name="suggestion_text"> <br>
+    <input type="submit" value="Submit">
+</form>
