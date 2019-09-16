@@ -1,5 +1,4 @@
-
-body {
+body{
     background: url("images/background.jpg") no-repeat;
     background-size: cover;
     background-position: left;
@@ -7,6 +6,15 @@ body {
 }
 
 /*general*/
+/* .background_container{
+    height: 95vh;   
+    min-height: 100%;
+    background: url("images/background.jpg") no-repeat;
+    background-size: cover;
+    background-position: left;
+    background-attachment: fixed;
+} */
+
 .header, .buttons, .poll_list{
     margin-left: 20px;
     margin-top: 20px;
@@ -62,15 +70,19 @@ li a{
 
 
 /* footer */
-.footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: left;
-  padding-left: 20px;
+.footer{   
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-left: 20px;
+    position: fixed;
+    height: 20px;
+    margin-bottom: 10px;
 }
 
+.background_container, .footer{
+    display: block;
+}
 
 /* suggestions.html */
 .suggestions_header h4{
@@ -91,6 +103,7 @@ li a{
     margin-top: 10px;
     margin-left: 20px;
 }
+
 
 .suggestion_list li{
     list-style-type: decimal;

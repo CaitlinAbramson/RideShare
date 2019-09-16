@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    
     <div class="nav">
         <ul>
             <li class="nav_link"> <a href="http://127.0.0.1:8000/admin/"> Admin Log In</a> </li>
@@ -20,9 +21,9 @@
 
     <div class="results_list">
         <ul>
-        {% for choice in question.choice_set.all %}
-            <li><strong>{{ choice.choice_text }}</strong>: {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
-        {% endfor %}
+            {% for choice in question.choice_set.all %}
+                <li><strong>{{ choice.choice_text }}</strong>: {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+            {% endfor %}
         </ul>
     </div>
 
@@ -33,7 +34,7 @@
     </div>
 
     <div class="footer">
-            <p>&copy; 2019 Caitlin Abramson</p>
-    </div>
+        <p>&copy; 2019 Caitlin Abramson</p>
+    </footer>
     
 </body>
